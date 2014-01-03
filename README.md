@@ -319,12 +319,12 @@ Within a code block, ampersands (&) and angle brackets (< and >) are automatical
 
 Code:
 
-    <div class="footer">
-        &copy; 2004 Foo Corporation
-    </div>
+        <div class="footer">
+            &copy; 2004 Foo Corporation
+        </div>
 Preview:
 ***
-<div class="footer">
+    <div class="footer">
         &copy; 2004 Foo Corporation
     </div>
 ***
@@ -525,3 +525,44 @@ Code:
 
     [img id]: url/to/image  "Optional title attribute"
 [img id]: url/to/image  "Optional title attribute"
+## Miscellaneous
+### Automatic Links
+Markdown supports a shortcut style for creating “automatic” links for URLs and email addresses: simply surround the URL or email address with angle brackets. What this means is that if you want to show the actual text of a URL or email address, and also have it be a clickable link, you can do this:
+
+Code:
+
+    <http://example.com/>
+    
+    <address@example.com>
+Preview:
+***
+<http://example.com/>
+
+<address@example.com>
+***
+### Backslash Escapes
+Markdown allows you to use backslash escapes to generate literal characters which would otherwise have special meaning in Markdown’s formatting syntax. For example, if you wanted to surround a word with literal asterisks (instead of an HTML <em> tag), you can use backslashes before the asterisks, like this:
+
+Code:
+
+    \*literal asterisks\*
+Preview:
+***
+\*literal asterisks\*
+***
+Markdown provides backslash escapes for the following characters:
+
+Code:
+
+    \   backslash
+    `   backtick
+    *   asterisk
+    _   underscore
+    {}  curly braces
+    []  square brackets
+    ()  parentheses
+    #   hash mark
+    +   plus sign
+    -   minus sign (hyphen)
+    .   dot
+    !   exclamation mark
