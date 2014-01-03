@@ -16,11 +16,12 @@ This is a markdown example shows how to write a markdown file.
 * [Miscellaneous](#miscellaneous)
   * [Automatic Links](#automatic-links)
   * [Backslash Escapes](#backslash-escapes)
+* [Inline HTML](#inline-html)
 
 ## Block Elements
 ### Paragraphs and Line Breaks
 #### Paragraphs
-A paragraph is simply one or more consecutive lines of text, separated by one or more blank lines. (A blank line is any line that looks like a blank line — a line containing nothing but spaces or tabs is considered blank.) Normal paragraphs should not be indented with spaces or tabs.
+A paragraph(`<p>`) is simply one or more consecutive lines of text, separated by **one or more blank lines**. (A blank line is any line that looks like a blank line — a line containing nothing but **spaces or tabs is considered blank**.) Normal paragraphs should not be indented with spaces or tabs.
 
 Code:
 
@@ -36,7 +37,7 @@ inline.
 This is second paragraph.
 ***
 #### Line Breaks
-When you do want to insert a `<br />` break tag using Markdown, you end a line with two or more spaces, then type return.
+When you do want to insert a `<br />` break tag using Markdown, you **end a line with two or more spaces**, then type return.
 
 Code:
 
@@ -51,7 +52,7 @@ inline.
 ### Headers
 Markdown supports two styles of headers, Setext and atx.
 #### Setext
-Setext-style headers are “underlined” using equal signs (for first-level headers) and dashes (for second-level headers). 
+Setext-style headers are “underlined” using **equal signs (for first-level headers`<h1>`)** and **dashes (for second-level headers`<h2>`)**. 
 Code:
 
     This is an H1
@@ -68,7 +69,7 @@ This is an H2
 ***
 Any number of underlining =’s or -’s will work.
 #### atx
-Atx-style headers use 1-6 hash characters at the start of the line, corresponding to header levels 1-6. 
+Atx-style headers use 1-6 hash characters at the start of the line, corresponding to header levels 1-6(`<h1>`-`<h6>`). 
 
 Code:
 
@@ -81,7 +82,7 @@ Preview:
 ## This is an H2
 ###### This is an H6
 ***
-Optionally, you may “close” atx-style headers. This is purely cosmetic — you can use this if you think it looks better. The closing hashes don’t even need to match the number of hashes used to open the header. (The number of opening hashes determines the header level.)
+Optionally, you may “close” atx-style headers. This is purely cosmetic — you can use this if you think it looks better. The closing hashes **don’t even need to match the number** of hashes used to open the header. (The number of opening hashes determines the header level.)
 
 Code:
 
@@ -203,13 +204,6 @@ Code:
     +   Red
     +   Green
     +   Blue
-Preview:
-***
-+   Red
-+   Green
-+   Blue
-
-***
 and:
 
 Code:
@@ -217,13 +211,6 @@ Code:
     -   Red
     -   Green
     -   Blue
-Preview:
-***
--   Red
--   Green
--   Blue
-
-***
 #### Ordered
 Ordered lists use numbers followed by periods:
 
@@ -280,7 +267,7 @@ Preview:
 
 ***
 ##### Code Block
-To put a code block within a list item, the code block needs to be indented twice — 8 spaces or two tabs:
+To put a code block within a list item, the code block needs to be indented twice — **8 spaces or two tabs**:
 
 Code:
 
@@ -314,7 +301,7 @@ Preview:
 ### Code Blocks
 Pre-formatted code blocks are used for writing about programming or markup source code. Rather than forming normal paragraphs, the lines of a code block are interpreted literally. Markdown wraps a code block in both `<pre>` and `<code>` tags.
 
-To produce a code block in Markdown, simply indent every line of the block by at least 4 spaces or 1 tab. For example, given this input:
+To produce a code block in Markdown, simply indent every line of the block by at least **4 spaces or 1 tab**. For example, given this input:
 
 Code:
 
@@ -422,7 +409,7 @@ Code:
     [foo]: <http://example.com/>  "Optional Title Here"
 Link definitions are only used for creating links during Markdown processing, and are stripped from your document in the HTML output.
 
-Link definition names may consist of letters, numbers, spaces, and punctuation — but they are not case sensitive.
+Link definition names may consist of letters, numbers, spaces, and punctuation — but they are **not case sensitive**.
 
 The implicit link name shortcut allows you to omit the name of the link, in which case the link text itself is used as the name. Just use an empty set of square brackets — e.g., to link the word “Google” to the google.com web site, you could simply write:
 
@@ -580,3 +567,55 @@ Code:
     -   minus sign (hyphen)
     .   dot
     !   exclamation mark
+
+## Inline HTML
+For any markup that is not covered by Markdown’s syntax, you simply use HTML itself. There’s no need to preface it or delimit it to indicate that you’re switching from Markdown to HTML; you just use the tags.
+
+The only restrictions are that block-level HTML elements — e.g. `<div>`, `<table>`, `<pre>`, `<p>`, etc. — must be separated from surrounding content by blank lines, and the start and end tags of the block should not be indented with tabs or spaces(**GitHub has no this restriction**). Markdown is smart enough not to add extra (unwanted) `<p>` tags around HTML block-level tags. 
+
+For example, to add an HTML table to a Markdown article:
+
+Code:
+
+    This is a regular paragraph.
+
+    <table>
+        <tr>
+            <td>Foo</td>
+        </tr>
+    </table>
+
+    This is another regular paragraph.
+Preview:
+***
+This is a regular paragraph.
+
+<table>
+    <tr>
+        <td>Foo</td>
+    </tr>
+</table>
+
+This is another regular paragraph.
+***
+Note that Markdown formatting syntax is **not processed within block-level HTML tags**. E.g., you can’t use Markdown-style \*emphasis\* inside an HTML block.
+
+Span-level HTML tags — e.g. `<span>`, `<cite>`, or `<del>` — can be used anywhere in a Markdown paragraph, list item, or header. If you want, you can even use HTML tags instead of Markdown formatting; e.g. if you’d prefer to use HTML `<a>` or `<img>` tags instead of Markdown’s link or image syntax, go right ahead.
+
+Unlike block-level HTML tags, Markdown syntax is **processed within span-level tags**.
+
+Code:
+
+    <span>**Work**</span>
+    
+    <div>
+        **No Work**
+    </div>
+Preview:
+***
+<span>**Work**</span>
+
+<div>
+  **No Work**
+</div>
+***
