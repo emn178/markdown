@@ -1,6 +1,7 @@
-README.md
+Markdown
 =========
-This is a README.md example shows how to write a README.md.
+This is a markdown example shows how to write a markdown file.
+
 
 ## Block Elements
 ### Paragraphs and Line Breaks
@@ -345,3 +346,182 @@ Preview:
 - - -
 ---------------------------------------
 ***
+## Inline Eleemnts
+### Links
+Markdown supports two style of links: inline and reference.
+
+In both styles, the link text is delimited by [square brackets].
+
+To create an inline link, use a set of regular parentheses immediately after the link text’s closing square bracket. Inside the parentheses, put the URL where you want the link to point, along with an optional title for the link, surrounded in quotes. For example:
+
+Code:
+
+    This is [an example](http://example.com/ "Title") inline link.
+    
+    [This link](http://example.net/) has no title attribute.
+Preview:
+***
+This is [an example](http://example.com/ "Title") inline link.
+
+[This link](http://example.net/) has no title attribute.
+***
+If you’re referring to a local resource on the same server, you can use relative paths:
+
+Code:
+
+    See my [About](/about/) page for details. 
+Preview:
+***
+See my [About](/about/) page for details. 
+***
+Reference-style links use a second set of square brackets, inside which you place a label of your choosing to identify the link:
+
+Code:
+
+    This is [an example][id] reference-style link.
+Preview:
+***
+This is [an example][id] reference-style link.
+***
+Then, anywhere in the document, you define your link label like this, on a line by itself:
+
+Code:
+
+    [id]: http://example.com/  "Optional Title Here"
+[id]: http://example.com/  "Optional Title Here"
+That is:
+
+* Square brackets containing the link identifier (optionally indented from the left margin using up to three spaces);
+* followed by a colon;
+* followed by one or more spaces (or tabs);
+* followed by the URL for the link;
+* The link URL may, optionally, be surrounded by angle brackets.
+* optionally followed by a title attribute for the link, enclosed in double or single quotes, or enclosed in parentheses.
+
+The following three link definitions are equivalent:
+
+Code:
+
+    [foo]: http://example.com/  "Optional Title Here"
+    [foo]: http://example.com/  'Optional Title Here'
+    [foo]: http://example.com/  (Optional Title Here)
+    [foo]: <http://example.com/>  "Optional Title Here"
+Link definitions are only used for creating links during Markdown processing, and are stripped from your document in the HTML output.
+
+Link definition names may consist of letters, numbers, spaces, and punctuation — but they are not case sensitive.
+
+The implicit link name shortcut allows you to omit the name of the link, in which case the link text itself is used as the name. Just use an empty set of square brackets — e.g., to link the word “Google” to the google.com web site, you could simply write:
+
+Code:
+
+    [Google]: http://google.com/
+    [Google][]
+Preview:
+***
+[Google]: http://google.com/
+[Google][]
+***
+### Emphasis
+Markdown treats asterisks (*) and underscores (_) as indicators of emphasis. Text wrapped with one * or _ will be wrapped with an HTML `<em>` tag; double *’s or _’s will be wrapped with an HTML `<strong>` tag. E.g., this input:
+
+Code:
+
+    *single asterisks*
+
+    _single underscores_
+
+    **double asterisks**
+
+    __double underscores__
+Preview:
+***
+*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+***
+But if you surround an * or _ with spaces, it’ll be treated as a literal asterisk or underscore.
+
+To produce a literal asterisk or underscore at a position where it would otherwise be used as an emphasis delimiter, you can backslash escape it:
+
+Code:
+
+    \*this text is surrounded by literal asterisks\*
+Preview:
+***
+\*this text is surrounded by literal asterisks\*
+***
+### Code
+To indicate a span of code, wrap it with backtick quotes (`). Unlike a pre-formatted code block, a code span indicates code within a normal paragraph. For example:
+
+Code:
+
+    Use the `printf()` function.
+Preview:
+***
+Use the `printf()` function.
+***
+To include a literal backtick character within a code span, you can use multiple backticks as the opening and closing delimiters:
+
+Code:
+
+    ``There is a literal backtick (`) here.``
+Preview:
+***
+``There is a literal backtick (`) here.``
+***
+The backtick delimiters surrounding a code span may include spaces — one after the opening, one before the closing. This allows you to place literal backtick characters at the beginning or end of a code span:
+
+Code:
+
+    A single backtick in a code span: `` ` ``
+
+    A backtick-delimited string in a code span: `` `foo` ``
+Preview:
+***
+A single backtick in a code span: `` ` ``
+
+A backtick-delimited string in a code span: `` `foo` ``
+***
+### Images
+Admittedly, it’s fairly difficult to devise a “natural” syntax for placing images into a plain text document format.
+
+Markdown uses an image syntax that is intended to resemble the syntax for links, allowing for two styles: inline and reference.
+
+Inline image syntax looks like this:
+
+Code:
+
+    ![Alt text](/path/to/img.jpg)
+
+    ![Alt text](/path/to/img.jpg "Optional title")
+Preview:
+***
+![Alt text](/path/to/img.jpg)
+
+![Alt text](/path/to/img.jpg "Optional title")
+***
+That is:
+
+* An exclamation mark: !;
+* followed by a set of square brackets, containing the alt attribute text for the image;
+* followed by a set of parentheses, containing the URL or path to the image, and an optional title attribute enclosed in double or single quotes.
+
+Reference-style image syntax looks like this:
+
+Code:
+
+    ![Alt text][img id]
+Preview:
+***
+![Alt text][img id]
+***
+Where “id” is the name of a defined image reference. Image references are defined using syntax identical to link references:
+
+Code:
+
+    [img id]: url/to/image  "Optional title attribute"
+[img id]: url/to/image  "Optional title attribute"
