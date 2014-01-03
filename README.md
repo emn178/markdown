@@ -1,7 +1,21 @@
-Markdown
-=========
+# Markdown
 This is a markdown example shows how to write a markdown file.
 
+* [Block Elements](#block-elements)
+  * [Paragraphs and Line Breaks](#paragraphs-and-line-breaks)
+  * [Headers](#headers)
+  * [Blockquotes](#blockquotes)
+  * [Lists](#lists)
+  * [Code Blocks](#code-blocks)
+  * [Horizontal Rules](#horizontal-rules)
+* [Inline Elements](#inline-elements)
+  * [Links](#links)
+  * [Emphasis](#emphasis)
+  * [Code](#code)
+  * [Images](#images)
+* [Miscellaneous](#miscellaneous)
+  * [Automatic Links](#automatic-links)
+  * [Backslash Escapes](#backslash-escapes)
 
 ## Block Elements
 ### Paragraphs and Line Breaks
@@ -81,7 +95,7 @@ Preview:
 ### This is an H3 ######
 ***
 
-#### Blockquotes
+### Blockquotes
 Markdown uses email-style > characters for blockquoting. If you’re familiar with quoting passages of text in an email message, then you know how to create a blockquote in Markdown. It looks best if you hard wrap the text and put a > before every line.
 
 Code:
@@ -165,7 +179,7 @@ Preview:
 
 ***
 
-### List
+### Lists
 Markdown supports ordered (numbered) and unordered (bulleted) lists.
 #### Unordered
 Unordered lists use asterisks, pluses, and hyphens — interchangably — as list markers.
@@ -297,7 +311,7 @@ Preview:
 * C
 
 ***
-### Code Block
+### Code Blocks
 Pre-formatted code blocks are used for writing about programming or markup source code. Rather than forming normal paragraphs, the lines of a code block are interpreted literally. Markdown wraps a code block in both `<pre>` and `<code>` tags.
 
 To produce a code block in Markdown, simply indent every line of the block by at least 4 spaces or 1 tab. For example, given this input:
@@ -346,7 +360,7 @@ Preview:
 - - -
 ---------------------------------------
 ***
-## Inline Eleemnts
+## Inline Elements
 ### Links
 Markdown supports two style of links: inline and reference.
 
