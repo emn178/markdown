@@ -43,7 +43,7 @@ This is second paragraph.
 #### Line Breaks
 HTML Tag: `<br />`
 
-End a line with two or more spaces.
+End a line with **two or more spaces**.
 
 Code:
 
@@ -227,6 +227,7 @@ Code:
     -   Blue
 #### Ordered
 HTML Tag: `<ol>`
+
 Ordered lists use numbers followed by periods:
 
 Code:
