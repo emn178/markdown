@@ -1,5 +1,5 @@
 # Markdown
-This is a markdown example shows how to write a markdown file.
+This is a markdown example shows how to write a markdown file. This document integrates core syntax and extensions (GMF).
 
 * [Block Elements](#block-elements)
   * [Paragraphs and Line Breaks](#paragraphs-and-line-breaks)
@@ -8,11 +8,13 @@ This is a markdown example shows how to write a markdown file.
   * [Lists](#lists)
   * [Code Blocks](#code-blocks)
   * [Horizontal Rules](#horizontal-rules)
+  * [Table](#table)
 * [Span Elements](#span-elements)
   * [Links](#links)
   * [Emphasis](#emphasis)
   * [Code](#code)
   * [Images](#images)
+  * [Strikethrough](#strikethrough)
 * [Miscellaneous](#miscellaneous)
   * [Automatic Links](#automatic-links)
   * [Backslash Escapes](#backslash-escapes)
@@ -58,7 +60,7 @@ Markdown supports two styles of headers, Setext and atx.
 #### Setext
 HTML Tags: `<h1>`, `<h2>`
 
-“Underlined” using **equal signs(=)** as `<h1>` and **dashes(-)** as `<h2>` in any number.
+“Underlined” using **equal signs (=)** as `<h1>` and **dashes (-)** as `<h2>` in any number.
 
 Code:
 
@@ -77,7 +79,7 @@ This is an H2
 #### atx
 HTML Tags: `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`
 
-Uses 1-6 **hash characters(#)** at the start of the line, corresponding to `<h1>` - `<h6>`.
+Uses 1-6 **hash characters (#)** at the start of the line, corresponding to `<h1>` - `<h6>`.
 
 Code:
 
@@ -195,7 +197,7 @@ Markdown supports ordered (numbered) and unordered (bulleted) lists.
 #### Unordered
 HTML Tag: `<ul>`
 
-Unordered lists use **asterisks(*)**, **pluses(+)**, and **hyphens(-)**.
+Unordered lists use **asterisks (*)**, **pluses (+)**, and **hyphens (-)**.
 
 Code:
 
@@ -249,7 +251,7 @@ Preview:
 1986. What a great season.
 
 ***
-You can **backslash(\\)-escape** the period:
+You can **backslash-escape (\\)** the period:
 
 Code:
 
@@ -341,9 +343,50 @@ Preview:
         &copy; 2004 Foo Corporation
     </div>
 ***
+Following sections Fenced Code Blocks and Syntax Highlighting are extensions, you can use the other way to write the code block.
+#### Fenced Code Blocks
+Just wrap your code in ```` ``` ```` (as shown below) and you won't need to indent it by four spaces.
+
+Code:
+
+    Here's an example:
+
+    ```
+    function test() {
+      console.log("notice the blank line before this function?");
+    }
+    ```
+Preview:
+***
+Here's an example:
+
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
+***
+#### Syntax Highlighting
+In your fenced block, add an optional language identifier and we'll run it through syntax highlighting ([Support Languages](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)).
+
+Code:
+
+    ```ruby
+    require 'redcarpet'
+    markdown = Redcarpet.new("Hello World!")
+    puts markdown.to_html
+    ```
+Preview:
+***
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+***
 ### Horizontal Rules
 HTML Tag: `<hr />`
-Places **three or more *yphens(-), asterisks(*), or underscores(_)** on a line by themselves. You may use spaces between the hyphens or asterisks.
+Places **three or more hyphens (-), asterisks (*), or underscores (_)** on a line by themselves. You may use spaces between the hyphens or asterisks.
 
 Code:
 
@@ -361,6 +404,46 @@ Preview:
 - - -
 ---------------------------------------
 ___
+***
+### Table
+HTML Tag: `<table>`
+
+It's an extension.
+
+Separates column by **pipe (|)** and header by **dashes (-)**, and uses **colon (:)** for alignment.
+
+The outer **pipes (|)** and alignment are optional. There are **3 delimiters** each cell at least for separating header.
+
+Code:
+```
+| Left | Center | Right |
+|:-----|:------:|------:|
+|aaa   |bbb     |ccc    |
+|ddd   |eee     |fff    |
+
+ A | B 
+---|---
+123|456
+
+
+A |B 
+--|--
+12|45
+```
+Preview:
+***
+| Left | Center | Right |
+|:-----|:------:|------:|
+|aaa   |bbb     |ccc    |
+|ddd   |eee     |fff    |
+
+ A | B 
+---|---
+123|456
+
+A |B 
+--|--
+12|45
 ***
 ## Span Elements
 ### Links
@@ -543,6 +626,21 @@ Preview:
 [img id]: url/to/image  "Optional title attribute"
 ![Alt text][img id]
 ***
+### Strikethrough
+HTML Tag: `<del>`
+
+It's an extension.
+
+GFM adds syntax to strikethrough text.
+
+Code:
+```
+~~Mistaken text.~~
+```
+Preview:
+***
+~~Mistaken text.~~
+***
 ## Miscellaneous
 ### Automatic Links
 Markdown supports a shortcut style for creating “automatic” links for URLs and email addresses: simply surround the URL or email address with angle brackets. 
@@ -558,6 +656,17 @@ Preview:
 
 <address@example.com>
 ***
+GFM will autolink standard URLs.
+
+Code:
+```
+https://github.com/emn178/markdown
+```
+Preview:
+***
+https://github.com/emn178/markdown
+***
+
 ### Backslash Escapes
 Markdown allows you to use backslash escapes to generate literal characters which would otherwise have special meaning in Markdown’s formatting syntax.
 
