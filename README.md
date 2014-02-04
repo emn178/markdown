@@ -1,5 +1,5 @@
 # Markdown
-This is a markdown example shows how to write a markdown file. This document integrates core syntax and extensions (GMF).
+A markdown example shows how to write a markdown file. This document integrates core syntax and extensions (GMF).
 
 * [Block Elements](#block-elements)
   * [Paragraphs and Line Breaks](#paragraphs-and-line-breaks)
